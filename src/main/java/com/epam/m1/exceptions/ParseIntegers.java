@@ -30,6 +30,11 @@ public class ParseIntegers {
             Matcher matcher = integerPattern.matcher(next);
             boolean matches = matcher.matches();
             if(matches) {
+                try {
+                    number = Integer.parseInt(next);
+                } catch (NumberFormatException e) {
+                    System.out.println("Number format exception");
+                }
                 number = Integer.parseInt(next);
                 sum += number;
             } else {
@@ -38,8 +43,9 @@ public class ParseIntegers {
         }
         justWords = String.join(" ", onlyWords);
 
+
         System.out.println("Sum is " + sum);
-        System.out.println("Just words:" + justWords);
+        System.out.println("Just words: " + justWords);
     }
 }
 
